@@ -4,6 +4,7 @@ namespace softark\duallistbox;
 
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
+use yii\helpers\Json;
 
 /**
  *  yii2-dual-list-box Widget
@@ -18,6 +19,8 @@ class DualListbox extends InputWidget
      */
     public $items;
 
+    public $clientOptions;
+
     public function init()
     {
         parent::init();
@@ -25,6 +28,24 @@ class DualListbox extends InputWidget
 
     public function run()
     {
-        return Html::activeListBox($this->model, $this->attribute, $this->items, $this->options);
+        $this->registerClientScript();
+        if ($this->hasModel()) {
+            return Html::activeListBox($this->model, $this->attribute, $this->items, $this->options);
+        } else {
+            return Html::listBox($this->name, $this->value,  $this->items, $this->options);
+        }
+    }
+
+    /**
+     * Registers the required JavaScript.
+     */
+    public function registerClientScript()
+    {
+        $options = $this->clientOptions;
+        $options = empty($options) ? '' : Json::encode($options);
+        $view = $this->getView();
+        DualListboxAsset::register($view);
+        $id = (array_key_exists('id', $this->options)) ? $this->options['id'] :  Html::getInputId($this->model, $this->attribute);
+        $view->registerJs("jQuery('#$id').bootstrapDualListbox($options);");
     }
 }

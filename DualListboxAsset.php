@@ -12,10 +12,19 @@ use yii\web\AssetBundle;
  */
 class DualListboxAsset extends AssetBundle
 {
+    public $sourcePath = '@vendor/istvan-ujjmeszaros/bootstrap-duallistbox/dist';
+    public $js = [
+        'jquery.bootstrap-duallistbox.js',
+    ];
+    public $css = [
+        'bootstrap-duallistbox.css',
+    ];
+
     /**
      * @inheritdoc
      */
     public $depends = [
         'yii\web\JqueryAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }
