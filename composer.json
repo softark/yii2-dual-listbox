@@ -18,7 +18,7 @@
 	},
 	"require": {
 		"yiisoft/yii2": "*",
-		"istvan-ujjmeszaros/bootstrap-duallistbox": "*"
+		"bower/bootstrap-duallistbox": "*"
 	},
 	"autoload": {
 		"psr-4": {
