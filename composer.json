@@ -1,0 +1,27 @@
+{
+	"name": "softark/yii2-dual-listbox",
+	"description": "Dual Listbox Widget for Yii 2",
+	"type": "yii2-extension",
+	"keywords": ["yii2", "yii 2", "dual-listbox", "duallistbox", "widget"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Nobuo Kihara",
+			"email": "softark@gmail.com",
+			"homepage": "http://softark.net"
+		}
+	],
+	"minimum-stability": "dev",
+	"support": {
+		"issues": "https://github.com/softark/yii2-dual-listbox/issues?state=open",
+		"source": "https://github.com/softark/yii2-dual-listbox"
+	},
+	"require": {
+		"yiisoft/yii2": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"softark\\duallistbox\\": ""
+		}
+	}
+}
