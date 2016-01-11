@@ -17,7 +17,8 @@
 		"source": "https://github.com/softark/yii2-dual-listbox"
 	},
 	"require": {
-		"yiisoft/yii2": "*"
+		"yiisoft/yii2": "*",
+		"istvan-ujjmeszaros/bootstrap-duallistbox": "*"
 	},
 	"autoload": {
 		"psr-4": {
