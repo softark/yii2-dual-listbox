@@ -18,7 +18,7 @@
 	},
 	"require": {
 		"yiisoft/yii2": "*",
-		"bower-asset/bootstrap-duallistbox": "*"
+		"bower-asset/bootstrap-duallistbox": "~3.0.0"
 	},
 	"autoload": {
 		"psr-4": {
