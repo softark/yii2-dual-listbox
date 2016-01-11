@@ -19,6 +19,9 @@ class DualListbox extends InputWidget
      */
     public $items;
 
+    /**
+     * @var array dual listbox options;
+     */
     public $clientOptions;
 
     public function init()
@@ -26,13 +29,16 @@ class DualListbox extends InputWidget
         parent::init();
     }
 
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         $this->registerClientScript();
         if ($this->hasModel()) {
             return Html::activeListBox($this->model, $this->attribute, $this->items, $this->options);
         } else {
-            return Html::listBox($this->name, $this->value,  $this->items, $this->options);
+            return Html::listBox($this->name, $this->value, $this->items, $this->options);
         }
     }
 
@@ -41,11 +47,10 @@ class DualListbox extends InputWidget
      */
     public function registerClientScript()
     {
-        $options = $this->clientOptions;
-        $options = empty($options) ? '' : Json::encode($options);
+        $options = empty($this->clientOptions) ? '' : Json::encode($this->clientOptions);
         $view = $this->getView();
         DualListboxAsset::register($view);
-        $id = (array_key_exists('id', $this->options)) ? $this->options['id'] :  Html::getInputId($this->model, $this->attribute);
+        $id = (array_key_exists('id', $this->options)) ? $this->options['id'] : Html::getInputId($this->model, $this->attribute);
         $view->registerJs("jQuery('#$id').bootstrapDualListbox($options);");
     }
 }
