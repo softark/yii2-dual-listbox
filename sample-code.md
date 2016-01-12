@@ -9,15 +9,13 @@ Here are 4 models involved in this page.
 
    - id
    - name
-   - ...
-   - etc.
+   - ... etc.
    
 2. Food extends ActiveRecord
 
    - id
    - name
-   - ...
-   - etc.
+   - ... etc.
 
 3. FavoriteFood extends ActiveRecord
 
@@ -34,7 +32,7 @@ Note that the last one is **not** an ActiveRecord, and **'food_ids' attribute is
 Model
 -----
 
-Please take note that `EachValidator` is used to validate the array of `food_ids` attribute.
+Please take note that **`EachValidator`** is used to validate the array of `food_ids` attribute.
 
 ```php
 class UserFavorites extends Model
@@ -55,9 +53,7 @@ class UserFavorites extends Model
     public function rules()
     {
         return [
-            // user_id is  required
             ['user_id', 'required'],
-            // user_id must exist in user table
             ['user_id', 'exist', 'targetClass' => User::className(), 'targetAttribute' => 'id'],
             // each food_id must exist in food table
             ['food_ids', 'each', 'rule' => [

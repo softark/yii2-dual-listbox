@@ -28,7 +28,7 @@ Usage
 
 2. Use `softark\duallistbox\DualListbox::widget()` in place of `yii\helpers\Html::listBox()`, `yii\helpers\Html::activeListBox()`, or `yii\widgets\ActiveField::listBox()` in your view.
 
-    1. Replacing `Html::listBox()` using `name` and `selection`
+    1. Replacing **`Html::listBox()`** using **`name` and `selection`**
 
         ```php
         use softark\duallistbox\DualListbox;
@@ -53,7 +53,7 @@ Usage
         ?>
         ```
 
-    2. Replacing `Html::activeListBox()` using `model` and `attribute`
+    2. Replacing **`Html::activeListBox()`** using **`model` and `attribute`**
 
         ```php
         use softark\duallistbox\DualListbox;
@@ -78,7 +78,7 @@ Usage
         ?>
         ```
 
-    3. Replacing `ActiveField::listBox()`
+    3. Replacing **`ActiveField::listBox()`** using **`model` and `attribute`**
 
         ```php
         use softark\duallistbox\DualListbox;
@@ -101,11 +101,9 @@ Usage
         ?>
         ```
 
-3. Collect the user input in the server side, just as you do with a single Listbox with multiple selection.
-
-   Note that the input value of the ListBox with multiple selection will be an array.
+3. Collect the user input in the server side, just as you do with a single Listbox with multiple selection. Note that the input value will be an array.
    
-   If you find difficulty in the handling of the user input, please read [A Sample Code](sample-code.md) which demonstrates how to use a dual listbox. 
+   If you find difficulty in handling the user input, please read [A Sample Code](sample-code.md) which demonstrates how to use a dual listbox to the data in array format. 
 
 
 Properties of softark\duallistbox\DualListbox
@@ -138,11 +136,11 @@ Properties of softark\duallistbox\DualListbox
 7. **clientOptions** @var array
 
    The options for the Bootstrap Dual Listbox in terms of name-value pairs.
-   See [Initialzation parameters object](https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox/blob/master/README.md#initialization-parameters-object) section of the official documentation of [Bootstrap Dual Listbox](https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox).
+   See [Initialzation parameters object](https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox/blob/master/README.md#initialization-parameters-object) section of the official documentation of [Bootstrap Dual Listbox](https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox) for details.
 
 The first 6 properties correspond to the parameters used in `Html::listBox()`, `Html::activeListBox()` and `ActiveField::listBox()`.
 
-Note that you have to use either `name`-`selection` pair or `model`-`attribute` pair. The former is for replacing `Html::listBox()` and the latter is for `Html::activeListBox()` and `ActiveField::listBox()`.
+Note that you have to use either **`name`-`selection`** pair or **`model`-`attribute`** pair. The former is for replacing `Html::listBox()` and the latter is for `Html::activeListBox()` and `ActiveField::listBox()`.
 
 
 History
