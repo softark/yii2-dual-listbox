@@ -17,17 +17,17 @@ class DualListbox extends InputWidget
     /**
      * @var array listbox items
      */
-    public $items;
+    public $items = [];
 
     /**
-     * @var array dual listbox options;
+     * @var array listbox options
      */
-    public $clientOptions;
+    public $options = ['class' => 'form-control'];
 
-    public function init()
-    {
-        parent::init();
-    }
+    /**
+     * @var array dual listbox options
+     */
+    public $clientOptions = [];
 
     /**
      * @inheritdoc
