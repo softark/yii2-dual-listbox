@@ -5,7 +5,7 @@ namespace softark\duallistbox;
 use yii\web\AssetBundle;
 
 /**
- * Asset bundle for yii2-dual-list-box Widget
+ * Asset bundle for yii2-dual-listbox Widget
  *
  * @author Nobuo Kihara <softark@gmail.comu>
  * @since 1.0
