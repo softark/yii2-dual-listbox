@@ -28,7 +28,7 @@ Usage
 
 2. Use `softark\duallistbox\DualListbox::widget()` in place of `yii\helpers\Html::listBox()`, `yii\helpers\Html::activeListBox()`, or `yii\widgets\ActiveField::listBox()` in your view.
 
-    1. Replacing **`Html::listBox()`** using **`name` and `selection`**
+    1. Replacing **Html::listBox()** using **name and selection**
 
         ```php
         use softark\duallistbox\DualListbox;
@@ -53,7 +53,7 @@ Usage
         ?>
         ```
 
-    2. Replacing **`Html::activeListBox()`** using **`model` and `attribute`**
+    2. Replacing **Html::activeListBox()** using **model and attribute**
 
         ```php
         use softark\duallistbox\DualListbox;
@@ -78,7 +78,7 @@ Usage
         ?>
         ```
 
-    3. Replacing **`ActiveField::listBox()`** using **`model` and `attribute`**
+    3. Replacing **ActiveField::listBox()** using **model and attribute**
 
         ```php
         use softark\duallistbox\DualListbox;
@@ -140,7 +140,7 @@ Properties of softark\duallistbox\DualListbox
 
 The first 6 properties correspond to the parameters used in `Html::listBox()`, `Html::activeListBox()` and `ActiveField::listBox()`.
 
-Note that you have to use either **`name`-`selection`** pair or **`model`-`attribute`** pair. The former is for replacing `Html::listBox()` and the latter is for `Html::activeListBox()` and `ActiveField::listBox()`.
+Note that you have to use either **name-selection** pair or **model-attribute** pair. The former is for replacing `Html::listBox()` and the latter is for `Html::activeListBox()` and `ActiveField::listBox()`.
 
 
 History
