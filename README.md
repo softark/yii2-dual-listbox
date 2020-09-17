@@ -11,6 +11,7 @@ Description
 Requirements
 ------------
 + Yii Version 2.0.0 or later
++ yii2-bootstrap or yii2-bootstrap4
 
 Usage
 -----
@@ -18,10 +19,10 @@ Usage
 
     ```php
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=7.0.0",
         "yiisoft/yii2": "*",
-        "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*",
+        "yiisoft/yii2-bootstrap": "*",    // OR
+        "yiisoft/yii2-bootstrap4": "*",   // Optionally you can use bootstrap 4
         "softark/yii2-dual-listbox": "dev-master"
     },
     ```
@@ -148,3 +149,5 @@ History
 
 + Version 1.0.0 (2016-01-12)
     + Tested on Yii 2.0.6
++ Version 1.0.1 (2020-09-18)
+    + Supports both bootstrap3 and bootstrap4
