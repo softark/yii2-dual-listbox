@@ -8,99 +8,115 @@ Description
 
 **softark\duallistbox\DualListbox** widget is a Yii 2 wrapper for [Bootstrap Dual Listbox](https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox).
 
+It works with bootstrap 3, 4, or 5
+
 Requirements
 ------------
 + Yii Version 2.0.0 or later
-+ yii2-bootstrap or yii2-bootstrap4
++ yii2-bootstrap, yii2-bootstrap4 or yii2-bootstrap5
++ istvan-ujjmeszaros/bootstrap-duallistbox v.3.0.x or v.4.0.x
 
 Usage
 -----
-1. Add `softark/yii2-dual-listbox` in your project's `composer.json`, and let Composer configure your project.
+1. Add `softark/yii2-dual-listbox` and `istvan-ujjmeszaros/bootstrap-duallistbox` in your project's `composer.json`, and let Composer configure your project.
 
+    + You have to use a different version of `istvan-ujjmeszaros/bootstrap-duallistbox` depending on the bootstrap version.
+    + For bootstrap 3, use `~3.0.0` : 
     ```php
     "require": {
         "php": ">=7.0.0",
         "yiisoft/yii2": "*",
-        "yiisoft/yii2-bootstrap": "*",    // OR
-        "yiisoft/yii2-bootstrap4": "*",   // Optionally you can use bootstrap 4
+        "yiisoft/yii2-bootstrap": "*",
+        "istvan-ujjmeszaros/bootstrap-duallistbox": "~3.0.0",
         "softark/yii2-dual-listbox": "dev-master"
     },
     ```
+    * For bootstrap 4 and 5, use `~4.0.0`:
+    ```php
+    "require": {
+        "php": ">=7.0.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap4": "*", // OR
+        "yiisoft/yii2-bootstrap5": "*",
+        "istvan-ujjmeszaros/bootstrap-duallistbox": "~4.0.0",
+        "softark/yii2-dual-listbox": "dev-master"
+    },
+    ```
+ 
+4. Use `softark\duallistbox\DualListbox::widget()` in place of `yii\helpers\Html::listBox()`, `yii\helpers\Html::activeListBox()`, or `yii\widgets\ActiveField::listBox()` in your view.
 
-2. Use `softark\duallistbox\DualListbox::widget()` in place of `yii\helpers\Html::listBox()`, `yii\helpers\Html::activeListBox()`, or `yii\widgets\ActiveField::listBox()` in your view.
+   1. Replacing **Html::listBox()** using **name and selection**
+           
+       ```php
+       use softark\duallistbox\DualListbox;
+       ...
+       <?php
+           $options = [
+               'multiple' => true,
+               'size' => 20,
+           ];
+           // echo Html::listBox($name, $selection, $items, $options);
+           echo DualListbox::widget([
+               'name' => $name,
+               'selection' => $selection,
+               'items' => $items,
+               'options' => $options,
+               'clientOptions' => [
+                   'moveOnSelect' => false,
+                   'selectedListLabel' => 'Selected Items',
+                   'nonSelectedListLabel' => 'Available Items',
+               ],
+           ]);
+       ?>
+       ```
 
-    1. Replacing **Html::listBox()** using **name and selection**
+   2. Replacing **Html::activeListBox()** using **model and attribute**
 
-        ```php
-        use softark\duallistbox\DualListbox;
-        ...
-        <?php
-            $options = [
-                'multiple' => true,
-                'size' => 20,
-            ];
-            // echo Html::listBox($name, $selection, $items, $options);
-            echo DualListbox::widget([
-                'name' => $name,
-                'selection' => $selection,
-                'items' => $items,
-                'options' => $options,
-                'clientOptions' => [
-                    'moveOnSelect' => false,
-                    'selectedListLabel' => 'Selected Items',
-                    'nonSelectedListLabel' => 'Available Items',
-                ],
-            ]);
-        ?>
-        ```
+       ```php
+       use softark\duallistbox\DualListbox;
+       ...
+       <?php
+           $options = [
+               'multiple' => true,
+               'size' => 20,
+           ];
+           // echo Html::activeListBox($model, $attribute, $items, $options);
+           echo DualListbox::widget([
+               'model' => $model,
+               'attribute' => $attribute,
+               'items' => $items,
+               'options' => $options,
+               'clientOptions' => [
+                   'moveOnSelect' => false,
+                   'selectedListLabel' => 'Selected Items',
+                   'nonSelectedListLabel' => 'Available Items',
+               ],
+           ]);
+       ?>
+       ```
 
-    2. Replacing **Html::activeListBox()** using **model and attribute**
+   3. Replacing **ActiveField::listBox()** using **model and attribute**
 
-        ```php
-        use softark\duallistbox\DualListbox;
-        ...
-        <?php
-            $options = [
-                'multiple' => true,
-                'size' => 20,
-            ];
-            // echo Html::activeListBox($model, $attribute, $items, $options);
-            echo DualListbox::widget([
-                'model' => $model,
-                'attribute' => $attribute,
-                'items' => $items,
-                'options' => $options,
-                'clientOptions' => [
-                    'moveOnSelect' => false,
-                    'selectedListLabel' => 'Selected Items',
-                    'nonSelectedListLabel' => 'Available Items',
-                ],
-            ]);
-        ?>
-        ```
-
-    3. Replacing **ActiveField::listBox()** using **model and attribute**
-
-        ```php
-        use softark\duallistbox\DualListbox;
-        ...
-        <?php
-            $options = [
-                'multiple' => true,
-                'size' => 20,
-            ];
-            // echo $form->field($model, $attribute)->listBox($items, $options);
-            echo $form->field($model, $attribute)->widget(DualListbox::className(),[
-                'items' => $items,
-                'options' => $options,
-                'clientOptions' => [
-                    'moveOnSelect' => false,
-                    'selectedListLabel' => 'Selected Items',
-                    'nonSelectedListLabel' => 'Available Items',
-                ],
-            ]);
-        ?>
-        ```
+       ```php
+       use softark\duallistbox\DualListbox;
+       ...
+       <?php
+           $options = [
+               'multiple' => true,
+               'size' => 20,
+           ];
+           // echo $form->field($model, $attribute)->listBox($items, $options);
+           echo $form->field($model, $attribute)->widget(DualListbox::className(),[
+               'items' => $items,
+               'options' => $options,
+               'clientOptions' => [
+                   'moveOnSelect' => false,
+                   'selectedListLabel' => 'Selected Items',
+                   'nonSelectedListLabel' => 'Available Items',
+               ],
+           ]);
+       ?>
+       ```
 
 3. Collect the user input in the server side, just as you do with a single Listbox with multiple selection. Note that the input value will be an array.
    
@@ -151,3 +167,5 @@ History
     + Tested on Yii 2.0.6
 + Version 1.0.1 (2020-09-18)
     + Supports both bootstrap3 and bootstrap4
++ Version 1.0.2 (2022-09-08)
+    + Supports also bootstrap5

@@ -22,7 +22,8 @@
 	},
 	"suggests": {
 		"yiisoft/yii2-bootstrap": "^2.0",
-		"yiisoft/yii2-bootstrap4": "^2.0"
+		"yiisoft/yii2-bootstrap4": "^2.0",
+		"yiisoft/yii2-bootstrap5": "*"
 	},
 	"autoload": {
 		"psr-4": {
