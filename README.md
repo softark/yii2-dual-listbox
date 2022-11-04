@@ -159,6 +159,14 @@ The first 6 properties correspond to the parameters used in `Html::listBox()`, `
 
 Note that you have to use either **name-selection** pair or **model-attribute** pair. The former is for replacing `Html::listBox()` and the latter is for `Html::activeListBox()` and `ActiveField::listBox()`.
 
+Notice
+------
+
+For some reason, [Bootstrap Dual Listbox](https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox)
+**doesn't work in mobile device browsers**, and so you can not 
+use this widget for them.
+
+Consider using checkbox list instead. 
 
 History
 -------
